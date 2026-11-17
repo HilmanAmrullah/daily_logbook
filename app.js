@@ -46,8 +46,16 @@ function notify(message) {
   clearTimeout(notify.timer); notify.timer=setTimeout(()=>toast.classList.remove("show"),2600);
 }
 function persist(message) {
-  try { localStorage.setItem(STORE_KEY,JSON.stringify(tasks)); render(); if(message) notify(message); }
-  catch { notify("Penyimpanan penuh. Export data sebagai backup."); }
+  try {
+    localStorage.setItem(STORE_KEY,JSON.stringify(tasks));
+    if(message) notify(message);
+    render();
+    return true;
+  } catch (error) {
+    console.error("Gagal menyimpan logbook:", error);
+    notify("Data gagal disimpan di browser. Cek izin penyimpanan atau kapasitas browser.");
+    return false;
+  }
 }
 function injectInteractiveUI() {
   const log=$(".log-section");
@@ -142,8 +150,12 @@ $("taskForm").addEventListener("submit",e=>{
   record.duration=minutesBetween(record.startTime,record.endTime);
   const index=tasks.findIndex(t=>t.id===id);
   if(index>=0) tasks[index]=record; else tasks.unshift(record);
-  persist(index>=0?"Task berhasil diperbarui.":"Task berhasil ditambahkan.");
-  resetForm(); currentPage=1; render();
+  const saved = persist(index>=0?"Task berhasil diperbarui.":"Task berhasil ditambahkan.");
+  if(saved) {
+    resetForm();
+    currentPage=1;
+    render();
+  }
 });
 $("resetButton").addEventListener("click",resetForm);
 $("taskRows").addEventListener("click",e=>{
