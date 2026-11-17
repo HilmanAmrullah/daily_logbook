@@ -185,7 +185,7 @@ function downloadFile(name,content,type) {
 }
 $("exportButton").addEventListener("click",()=>{
   const headers=["Tanggal","Ticket ID","Nama Pelapor","Departemen / Lokasi","Kategori","Permasalahan / Task","Prioritas","Tindakan / Troubleshooting","Status","Jam Mulai","Jam Selesai","Durasi (Menit)","Hasil Penyelesaian","Follow-up","Link Bukti","Catatan"];
-  const rows=tasks.map(t=>fields.map(k=>k==="date"?t[k]:t[k]).concat([]));
+  const rows=tasks.map(t=>[t.date,t.ticket,t.reporter,t.location,t.category,t.task,t.priority,t.action,t.status,t.startTime,t.endTime,t.duration,t.result,t.followup,t.evidence,t.notes]);
   const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
   downloadFile("daily-logbook-it-support.csv","\ufeff"+csv,"text/csv;charset=utf-8");notify("File CSV berhasil dibuat.");
 });
