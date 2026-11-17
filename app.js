@@ -58,8 +58,8 @@ function persist(message) {
   }
 }
 function injectInteractiveUI() {
-  const log=$(".log-section");
-  const toolbar=$(".toolbar");
+  const log=document.querySelector(".log-section");
+  const toolbar=document.querySelector(".toolbar");
   const tools=document.createElement("div");
   tools.className="interactive-tools";
   tools.innerHTML=`
