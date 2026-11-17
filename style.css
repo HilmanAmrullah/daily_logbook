@@ -43,3 +43,11 @@ section{background:var(--white);border:1px solid var(--line);margin-top:18px;pad
 .detail-item strong{display:block;color:var(--ink);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:760px){.interactive-tools{grid-template-columns:1fr}.pagination{align-items:flex-start;flex-direction:column}.detail-grid{grid-template-columns:1fr}.detail-item.wide{grid-column:auto}}
 @media print{.interactive-tools,.pagination,.toast,.modal-backdrop{display:none!important}}
+
+/* Top navigation bar */
+.top-navbar{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100% - 1396px)/2));position:sticky;top:0;z-index:100}
+.navbar-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);font-size:15px;font-weight:700;letter-spacing:-.2px}
+.navbar-brand img{width:38px;height:38px;object-fit:contain;display:block}
+.navbar-caption{font-size:12px;color:var(--muted);font-weight:600}
+.page{margin-top:24px}
+@media(max-width:540px){.top-navbar{height:58px;padding:0 14px}.navbar-brand{font-size:14px}.navbar-brand img{width:34px;height:34px}}
