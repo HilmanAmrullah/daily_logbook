@@ -12,8 +12,14 @@ Aplikasi web sederhana untuk mencatat aktivitas harian, penanganan kendala, dan 
 - Perhitungan durasi otomatis berdasarkan jam mulai dan jam selesai dalam satuan menit.
 - Mendukung perhitungan durasi yang melewati tengah malam.
 - Dashboard ringkasan jumlah task, task selesai, task dalam proses, dan total durasi.
-- Pencarian, filter status, edit, dan hapus data.
-- Export data ke CSV dan cetak halaman logbook.
+- Pencarian serta filter berdasarkan status, kategori, dan rentang tanggal.
+- Pengurutan tanggal terbaru atau terlama.
+- Pagination agar riwayat task lebih mudah dibaca.
+- Detail task melalui jendela modal.
+- Ubah status task langsung dari tabel tanpa membuka form edit.
+- Grafik ringkasan jumlah aktivitas per kategori.
+- Backup dan restore seluruh data menggunakan JSON.
+- Export data ke CSV, hapus seluruh data dengan konfirmasi, dan cetak halaman logbook.
 
 ## Teknologi
 
